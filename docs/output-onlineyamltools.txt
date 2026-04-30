@@ -1,0 +1,451 @@
+﻿{
+  "type": "collection.insomnia.rest/5.0",
+  "schema_version": "5.1",
+  "name": "Scratch Pad",
+  "meta": {
+    "id": "wrk_scratchpad",
+    "created": 1775593365166,
+    "modified": 1775593365166,
+    "description": ""
+  },
+  "collection": [
+    {
+      "name": "Movies",
+      "meta": {
+        "id": "fld_535bcb8cf8e442b3b7e6c2e1e87d9411",
+        "created": 1777577028427,
+        "modified": 1777577911979,
+        "sortKey": -1777577429238,
+        "description": ""
+      },
+      "children": [
+        {
+          "url": "http://localhost:3333/movies/1",
+          "name": "movies-read",
+          "meta": {
+            "id": "req_8f7596edceab4b7da020e7483de1af5b",
+            "created": 1777576884985,
+            "modified": 1777577404659,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577032650.5
+          },
+          "method": "GET",
+          "headers": [
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/movies",
+          "name": "movies - create",
+          "meta": {
+            "id": "req_a141e4aab5264944b3b27495555229dd",
+            "created": 1777577049216,
+            "modified": 1777578394597,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577032750.5
+          },
+          "method": "POST",
+          "body": {
+            "mimeType": "application/json",
+            "text": "{\n    \"id\": 3,\n    \"title\": \"Velocidade Terminal\",\n    \"description\": \"Um ex-piloto de fuga é forçado a realizar um último trabalho para salvar sua irmã de um sindicato do crime.\",\n    \"year\": 2025,\n    \"genres\": [\"Ação\", \"Crime\"],\n    \"image\": \"https://exemplo.com/imagens/velocidade-terminal.jpg\",\n    \"video\": \"https://exemplo.com/trailers/velocidade-terminal.mp4\"\n  }"
+          },
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "authentication": {
+            "type": "bearer",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NjVkYTAxLWE1ZjktNDQwOS1iY2MwLTgyNzYyMmFhMDU5ZCIsIm5hbWUiOiJDYXJsb3MgU2lsdmEiLCJhZ2UiOjI4LCJlbWFpbCI6ImNhcmxvcy5zaWx2YUBleGFtcGxlLmNvbSIsInBhc3N3b3JkIjoiJDJiJDA4JGNqdmZrOHExc0dsMG8uN1Z0ZFN6RGVkc0xxUkJyUjdkbkpkaXdieVVzZ0dDeXl2VnFESU9XIiwiaWF0IjoxNzc3NTc4MjAwLCJleHAiOjE3Nzc2NjgyMDB9.pNjR_VIhbzKOp1em_6m9LvW2VaIS4ncMILOypz_vyvs"
+          },
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/movies/1",
+          "name": "movies - update",
+          "meta": {
+            "id": "req_1408dc06f6d2476582c6670ba6651ee6",
+            "created": 1777577175752,
+            "modified": 1777577407811,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577032644.25
+          },
+          "method": "PUT",
+          "body": {
+            "mimeType": "application/json",
+            "text": "{\n    \"id\": 1,\n    \"title\": \"Alice no País das Maravilhas\",\n    \"description\": \"A jovem Alice persegue um coelho branco e cai em um buraco que a leva a um mundo fantástico, repleto de criaturas peculiares e situações surreais.\",\n    \"year\": 1951,\n    \"genres\": [\"Animação\", \"Aventura\", \"Família\", \"Fantasia\"],\n    \"image\": \"https://exemplo.com/imagens/alice-1951.jpg\",\n    \"video\": \"https://exemplo.com/trailers/alice-1951.mp4\"\n  }"
+          },
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/movies/3",
+          "name": "movies - delete",
+          "meta": {
+            "id": "req_40808ed25f954ef5a6630a92123d242d",
+            "created": 1777577305624,
+            "modified": 1777577392390,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577032638
+          },
+          "method": "DELETE",
+          "headers": [
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/movies",
+          "name": "movies - list",
+          "meta": {
+            "id": "req_b34dbd25c5ed4fc6911e8d498fb1eef2",
+            "created": 1777577350387,
+            "modified": 1777577842177,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577032850.5
+          },
+          "method": "GET",
+          "headers": [
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "meta": {
+        "id": "fld_0a5ca6fbd2464c19858b85378675d3cc",
+        "created": 1777577429138,
+        "modified": 1777577429138,
+        "sortKey": -1777577429138,
+        "description": ""
+      },
+      "children": [
+        {
+          "url": "http://localhost:3333/users/6565da01-a5f9-4409-bcc0-827622aa059d",
+          "name": "users - read",
+          "meta": {
+            "id": "req_cb1c048609b64583bd35b27aaf918e25",
+            "created": 1777577435661,
+            "modified": 1777577845042,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577802424
+          },
+          "method": "GET",
+          "headers": [
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/users",
+          "name": "users - create",
+          "meta": {
+            "id": "req_da07f519e9ef4c6585027f1183f296e2",
+            "created": 1777577519117,
+            "modified": 1777577862985,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577802474
+          },
+          "method": "POST",
+          "body": {
+            "mimeType": "application/json",
+            "text": "{\n   \"id\": \"2\",\n    \"name\": \"Mariana Souza\",\n    \"age\": 34,\n    \"email\": \"mariana.souza@example.com\",\n    \"password\": \"senha456\"\n }"
+          },
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/users/6565da01-a5f9-4409-bcc0-827622aa059d",
+          "name": "users - update",
+          "meta": {
+            "id": "req_b17337a0945945fcab2c4f0dd346b667",
+            "created": 1777577595412,
+            "modified": 1777577866936,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577802411.5
+          },
+          "method": "PUT",
+          "body": {
+            "mimeType": "application/json",
+            "text": "{\n  \"id\": \"6565da01-a5f9-4409-bcc0-827622aa059d\",\n  \"name\": \"Carlos Ribeiro\",\n  \"age\": 20,\n  \"email\": \"carlos.silva@example.com\",\n  \"password\": \"abc123\"\n}"
+          },
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/users/2",
+          "name": "users - delete",
+          "meta": {
+            "id": "req_f42e82a7760943a9859c280d166fa238",
+            "created": 1777577711610,
+            "modified": 1777577853000,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577802399
+          },
+          "method": "DELETE",
+          "headers": [
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        },
+        {
+          "url": "http://localhost:3333/users",
+          "name": "users  - list",
+          "meta": {
+            "id": "req_634c81524bc945d9b57060a75a5b45ea",
+            "created": 1777577754081,
+            "modified": 1777577860875,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777577802524
+          },
+          "method": "GET",
+          "headers": [
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "meta": {
+        "id": "fld_f39ca83ffea144ec95e0b65521f32625",
+        "created": 1777577951977,
+        "modified": 1777577951977,
+        "sortKey": -1777577951977,
+        "description": ""
+      },
+      "children": [
+        {
+          "url": "http://localhost:3333/authenticate",
+          "name": "authenticate - post",
+          "meta": {
+            "id": "req_b42cb35740ba4256b60508b71c401d0f",
+            "created": 1777577956158,
+            "modified": 1777578468872,
+            "isPrivate": false,
+            "description": "",
+            "sortKey": -1777578468843
+          },
+          "method": "POST",
+          "body": {
+            "mimeType": "application/json",
+            "text": "{\n  \"email\": \"carlos.silva@example.com\",\n  \"password\": \"abc123\"\n}"
+          },
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "insomnia/12.5.0",
+              "description": "",
+              "disabled": false
+            }
+          ],
+          "settings": {
+            "renderRequestBody": true,
+            "encodeUrl": true,
+            "followRedirects": "global",
+            "cookies": {
+              "send": true,
+              "store": true
+            },
+            "rebuildPath": true
+          }
+        }
+      ]
+    }
+  ],
+  "cookieJar": {
+    "name": "Default Jar",
+    "meta": {
+      "id": "jar_99d30891da4bdcebc63947a8fc17f076de878684",
+      "created": 1777576875160,
+      "modified": 1777576875160
+    }
+  },
+  "environments": {
+    "name": "Base Environment",
+    "meta": {
+      "id": "env_99d30891da4bdcebc63947a8fc17f076de878684",
+      "created": 1777576875158,
+      "modified": 1777576875158,
+      "isPrivate": false
+    }
+  }
+}
