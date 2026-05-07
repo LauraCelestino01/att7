@@ -1,14 +1,15 @@
 const jwt = require("jsonwebtoken");
 
 const { JWT_SECRET } = require("../config/env.js");
+const UserModel = require("../model/user.model.js");
 const { compareHash } = require("../utils/hashProvider.js");
-const { userDatabase } = require("./users.controller.js");
+
 
 
 const login = async (request, response) =>{
     const { email, password} = request.body
+    const user = await UserModel.findOne({ email }).lean();
 
-    const user = userDatabase.find(u => u.email === email);
 
     const errorMenssage = {
             error: '@authenticate/login',
@@ -24,12 +25,12 @@ const login = async (request, response) =>{
     }; 
 
     const userLoged = { ...user }; 
-    delete userLoged.password;
-
     const token = jwt.sign(user, JWT_SECRET,{
-        expiresIn: '25h'
+        expiresIn: '24h'
     });
     
+    delete userLoged.password;
+     
     return response.json({ ...userLoged, token}); 
 };
 

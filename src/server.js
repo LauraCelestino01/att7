@@ -1,5 +1,7 @@
 const express = require("express");
+global.crypto = require('node:crypto');
 
+require("./config/database.js");
 const { PORT } = require("./config/env.js");
 const movieRoutes = require("./routes/movies.routes.js");
 const userRoutes = require("./routes/users.routes.js");
