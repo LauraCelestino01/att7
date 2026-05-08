@@ -5,7 +5,7 @@ const authenticateController = require("../controllers/authenticate.controller.j
 
 const routes = Router();
 
-routes.post("/authenticate/", authenticateController.login );
+routes.post("/authenticate/", authenticateController.login);
 
 
 module.exports = routes

@@ -1,13 +1,12 @@
+const{ response } = require("express")
+
 const MovieModel =  require("../model/movie.model.js");
-const { errorMonitor } = require("node:events");
-const { error } = require("node:console");
 
 
 
 const list = async (request, response) => {
     try {
         const movies = await MovieModel.find()
-    
         return response.json(movies);
 
     } catch (err) {
@@ -15,28 +14,29 @@ const list = async (request, response) => {
             error: "movies/list",
             message: err.message || "Fail to list movies"
         });
-    }
+    };
     
 };
 
-const read = async (request, response) => {
+const getById = async (request, response) => {
     const { id } = request.params;
     
     try {
         const movies = await MovieModel.findById(id)
-        
-        return response.json(movies); 
-        
         if(!movies){
-            throw new Error();
-        }
+            throw new Error(404)
+        };
+
+        return response.json(movies);
+        
+       
          
     } catch (err) {
        return response.status(404).json({ 
-        error:"movies/read",
+        error:"movies/getById",
         message: err.message || "Movies not found" 
      }); 
-    }    
+    };   
 };
 
 
@@ -52,15 +52,14 @@ const create = async (request, response) => {
             image,
             video,
         })
-         return response.status(201).json(movies);
+        return response.status(201).json(movies);
 
     } catch (err) {
         return response.status(400).json({
             erro:"movies/create",
             message: err.message || "Failed to create"
         });      
-    }
-
+    };
 };
 
 const update = async (request, response) => {    
@@ -79,44 +78,43 @@ const update = async (request, response) => {
             new: true
         })
         if (!moviesUpdate) {
-            return response.status(404).json({ message: "Movie not found" });
+            return response.status(404).json({ 
+                message: "Movie not found"
+             });
         }
-
         return response.json(moviesUpdate);
         
     } catch (err) {
         return response.status(404).json({ 
             error:"movies/update",
-            message: err.message || "Filme não encontrado",
-         });
-        
-    }
+            message: err.message || "Movies not found",
+         });  
+    };
 };
 
-const delet = async (request, response) => {
+const remove = async (request, response) => {
     const { id } = request.params;
 
     try {
-        const movieRemoved = await MovieModel.findByIdAndDelete(id);
+        const movieRemoved = await MovieModel.findByIdAndDelete(id)
         if(!movieRemoved){
             throw new Error();
         }
-        
-        return response.status(204).send();     
-
+        return response.status(200).json({
+            message: "Movie removed"
+        }); 
     } catch (err) {
-       return response.status(404).json({ 
-        error:"movie/delet",
-        message: err.message || "Filme não encontrado" }); 
-    }
-   
-   
+        return response.status(404).json({ 
+            error:"movie/delet",
+            message: err.message || "Movie not found"
+        }); 
+    };
 };
 
 module.exports = { 
     list, 
-    read, 
+    getById, 
     create, 
     update, 
-    delet,
+    remove,
 };

@@ -8,10 +8,10 @@ const routes = Router();
 
 
 routes.get("/movies", moviesController.list);
-routes.get("/movies/:id", moviesController.read);
+routes.get("/movies/:id", moviesController.getById);
 routes.post("/movies", veryfyAuthenticate, moviesController.create);
 routes.put("/movies/:id", moviesController.update);
-routes.delete("/movies/:id", moviesController.delet);
+routes.delete("/movies/:id", moviesController.remove);
 
 
 module.exports = routes

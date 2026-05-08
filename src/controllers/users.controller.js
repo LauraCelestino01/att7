@@ -1,40 +1,33 @@
-const { response } = require("express");
-
 const UserModel = require("../model/user.model.js");
-const { error } = require("node:console");
-const userModel = require("../model/user.model.js");
-
 
 const list = async (request, response) => {
     try {
-        const users = await UserModel.find({}, {password: 0});
+        const users = await UserModel.find({}, {password: 0})
         return response.json(users);
 
     } catch (err) {
         return response.status(400).json({
             error: "user/list",
-            message:"Failed to list users"
-        })
-    }
+            message: err.message || "Failed to list users"
+        });
+    };
     
 };
 
 
-const read = async (request, response) => {
+const getById = async (request, response) => {
     const { id } = request.params;
-    try {
-        const user = await UserModel.findById(id, {password: 0});
 
+    try {
+        const user = await UserModel.findById(id, {password: 0})
         return response.json(user);  
 
     } catch (err) {
         return response.status(400).json({ 
-            error: "user/read",
-            message: "User not found"
+            error: "user/getById",
+            message: err.message || "User not found"
          });
-    }
-
-    
+    }; 
 };
 
 
@@ -43,21 +36,19 @@ const create = async (request, response) => {
 
     try {
         const user = await UserModel.create({
-        name,
-        age,
-        email,
-        password,
-    });
-    return response.status(201).json(user); 
+            name,
+            age,
+            email,
+            password,
+        })
+        return response.status(201).json(user); 
 
     } catch (err) {
-    return response.status(400).json({
-        error: "users/create",
-        message: "aaaa"
-    });
-}
-
-
+        return response.status(400).json({
+            error: "users/create",
+            message: err.message || "Fail to create"
+        });
+    };
 };
 
 
@@ -70,19 +61,18 @@ const update = async (request, response) => {
             name,
             age,
             email,
-            password
-        });
-
+            password,
+        })
         if(!userUpdated) {
-            throw new Error();
+            throw new Error()
         }
-        return response.json(userUpdated)
+        return response.json(userUpdated);
 
     } catch (err) {
          return response.status(404).json({ 
             error: "users/update" ,
-            message: "User not found"
-         })
+            message: err.message || "User not found"
+         });
     };
 };
     
@@ -90,38 +80,33 @@ const update = async (request, response) => {
  
 
 
-const delet = async (request, response) => {
+const remove = async (request, response) => {
     const { id } = request.params;
 
     try {
-        const userDeleted = await userModel.findByIdAndDelete( id )
+        const userDeleted = await UserModel.findByIdAndDelete( id )
 
         if(!userDeleted) {
             throw new Error();
         }
-        return response.status(204).send("Usuário removido!");
+        return response.status(200).json({
+            message: "User removed"
+        });
 
     } catch (err) {
-        
         return response.status(404).json({ 
             error: "users/remove" ,
             message: err.message || "User not found" 
         });
-    
-    }
-    
-    
-
-    
-    
+    };
 };
 
 
 module.exports = {
     list,
-    read,
+    getById,
     create,
     update,
-    delet,
+    remove,
     UserModel,
 };
